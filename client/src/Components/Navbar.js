@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 const Navbar = () => {
+  const cartState = useSelector((state) => state.cartReducer);
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-3 mb-5 bg-body-tertiary">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="/">
         Pizza Corner
       </a>
       <button
@@ -25,13 +27,13 @@ const Navbar = () => {
       >
         <ul className="navbar-nav ml-auto mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/login">
               Login
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Cart
+            <a className="nav-link" href="/cart">
+              Cart {cartState.cartItems.length}
             </a>
           </li>
         </ul>

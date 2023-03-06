@@ -17,20 +17,24 @@ const Home = () => {
   // var d = new Date("2020-04-13T00:00:00.000+08:00");
   // console.log(d.toLocaleTimeString());
   // const date = new Date();
-  console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
+  // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
   // console.log(date.DateTimeFormat().resolvedOptions().timeZone);
   // console.log(date.get());
   // console.log(moment.tz.guess());
+  console.log("jfkwejad", pizzaState?.error?.message);
   return (
     <div>
-      <div className="row">
-        {pizzaMnue.map((item) => (
-          <div className="col-md-4" style={{}}>
-            <div style={{ justifyContent: "center", display: "flex" }}>
-              <PizzaComp compData={item} />
+      <div className="row justify-content-center">
+        {pizzaState &&
+          pizzaState?.pizzas &&
+          pizzaState?.pizzas.map((item) => (
+            <div className="col-md-4" style={{}}>
+              <div style={{ justifyContent: "center", display: "flex" }}>
+                <PizzaComp compData={item} />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        <p>{pizzaState?.error?.message}</p>
       </div>
     </div>
   );
