@@ -6,6 +6,7 @@ import CartScreen from "./Screens/CartScreen";
 import Login from "./Screens/AuthScreens/Login";
 import SignUp from "./Screens/AuthScreens/SignUp";
 import bootstrap from "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 

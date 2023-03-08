@@ -4,6 +4,7 @@ import PizzaComp from "../Components/PizzaComp";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPizzas } from "../redux/actions/pizzaAction";
 import { addToCart, deleteFromCart } from "../redux/actions/cartAction";
+import Checkout from "../Components/Checkout";
 // import moment from "moment";
 
 const CartScreen = () => {
@@ -86,12 +87,13 @@ const CartScreen = () => {
         </div>
         <div className="col-md-4 text-right">
           <h2>Total Price: {subTotal} Rs</h2>
-          <button
+          <Checkout subTotal={subTotal} />
+          {/* <button
             className="btn"
             style={{ backgroundColor: "red", color: "white" }}
           >
             Chekout
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

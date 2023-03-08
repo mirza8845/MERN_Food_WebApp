@@ -3,6 +3,7 @@ import pizzaMnue from "../Assets/dummyData";
 import PizzaComp from "../Components/PizzaComp";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPizzas } from "../redux/actions/pizzaAction";
+import Loader from "../Components/Loader";
 // import moment from "moment";
 
 const Home = () => {
@@ -25,7 +26,9 @@ const Home = () => {
   return (
     <div>
       <div className="row justify-content-center">
-        {pizzaState &&
+        {pizzaState && pizzaState.loading ? (
+          <Loader />
+        ) : (
           pizzaState?.pizzas &&
           pizzaState?.pizzas.map((item) => (
             <div className="col-md-4" style={{}}>
@@ -33,7 +36,8 @@ const Home = () => {
                 <PizzaComp compData={item} />
               </div>
             </div>
-          ))}
+          ))
+        )}
         <p>{pizzaState?.error?.message}</p>
       </div>
     </div>

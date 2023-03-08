@@ -1,6 +1,10 @@
 import React, { Component, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { registerAction } from "../../redux/actions/userAction";
 
-const SignUp = () => {
+const SignUp = (props) => {
+  const dispatch = useDispatch();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +16,7 @@ const SignUp = () => {
       password,
     };
     console.log(user);
+    dispatch(registerAction(user));
   };
 
   return (

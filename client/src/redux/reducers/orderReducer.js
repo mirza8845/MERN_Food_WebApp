@@ -1,19 +1,16 @@
-export const registerReducer = (
-  state = { success: false, error: false },
-  action
-) => {
+export const orderReducer = (state = { pizzas: [] }, action) => {
   switch (action.type) {
-    case "POST_REGISTER_REQUEST":
+    case "PLACE_ORDER_REQUEST":
       return {
         loading: true,
         ...state,
       };
-    case "POST_REGISTER_SUCCESS":
+    case "GET_PIZZAS_SUCCESS":
       return {
         loading: false,
-        success: action.data,
+        pizzas: action.data,
       };
-    case "POST_REGISTER_FAILED":
+    case "GET_PIZZAS_FAILED":
       return {
         loading: false,
         error: action.data,

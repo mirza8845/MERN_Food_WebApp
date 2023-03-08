@@ -6,10 +6,12 @@ const app = express();
 const db = require("./db");
 
 const pizzaRoute = require("./routes/pizzaRoute");
+const userRoute = require("./routes/userRoute");
 
 app.use(express.json());
 
 app.use("/api/pizzas/", pizzaRoute);
+app.use("/api/users/", userRoute);
 
 app.get("/", (req, res) => {
   res.send("Server Working!!!!");
@@ -25,6 +27,6 @@ app.get("/", (req, res) => {
 //   });
 // });
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8001;
 
 app.listen(port, () => "Server running on port !");
