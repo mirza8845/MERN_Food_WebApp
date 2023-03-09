@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/actions/cartAction";
 
 const PizzaComp = (props) => {
   const { compData } = props;
@@ -9,11 +11,17 @@ const PizzaComp = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [show, setShow] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const addToCartFunc = () => {
+    dispatch(addToCart(compData, quantity, varient));
+  };
+
   return (
     <>
       <div
-        className="shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-        style={{ width: "100%", backgroundColor: "white", margin: "55px" }}
+        className="shadow-lg p-3 mb-5 bg-white rounded"
+        style={{ width: "70%", backgroundColor: "white" }}
       >
         <h1>{compData.name}</h1>
         <img
@@ -79,6 +87,7 @@ const PizzaComp = (props) => {
               border: "none",
               height: "30px",
             }}
+            onClick={() => addToCartFunc()}
           >
             ADD TO CART
           </button>
