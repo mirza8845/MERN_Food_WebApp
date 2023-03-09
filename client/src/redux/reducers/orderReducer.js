@@ -1,16 +1,38 @@
-export const orderReducer = (state = { pizzas: [] }, action) => {
+export const orderReducer = (state = { success: false }, action) => {
   switch (action.type) {
     case "PLACE_ORDER_REQUEST":
       return {
         loading: true,
         ...state,
       };
-    case "GET_PIZZAS_SUCCESS":
+    case "PLACE_ORDER_SUCCESS":
       return {
         loading: false,
-        pizzas: action.data,
+        success: action.data,
       };
-    case "GET_PIZZAS_FAILED":
+    case "PLACE_ORDER_FAILED":
+      return {
+        loading: false,
+        error: action.data,
+      };
+    default:
+      return state;
+  }
+};
+
+export const userOrdersReducer = (state = { orders: [] }, action) => {
+  switch (action.type) {
+    case "GET_ORDER_REQUEST":
+      return {
+        loading: true,
+        ...state,
+      };
+    case "GET_ORDER_SUCCESS":
+      return {
+        loading: false,
+        orders: action.data,
+      };
+    case "GET_ORDER_FAILED":
       return {
         loading: false,
         error: action.data,

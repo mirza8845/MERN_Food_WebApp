@@ -7,11 +7,13 @@ const db = require("./db");
 
 const pizzaRoute = require("./routes/pizzaRoute");
 const userRoute = require("./routes/userRoute");
+const orderRoute = require("./routes/ordersRoute");
 
 app.use(express.json());
 
 app.use("/api/pizzas/", pizzaRoute);
 app.use("/api/users/", userRoute);
+app.use("/api/orders/", orderRoute);
 
 app.get("/", (req, res) => {
   res.send("Server Working!!!!");

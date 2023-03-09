@@ -28,7 +28,7 @@ const CartScreen = () => {
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                border: "1px solid black",
+                borderBottom: "1px solid black",
               }}
             >
               <div className="text-left m-3 p-3">
@@ -43,7 +43,13 @@ const CartScreen = () => {
                 <div style={{ display: "flex", flexDirection: "row" }}>
                   <div>Quantity:</div>
                   <span
-                    style={{ margin: "0px 5px 0px 5px", cursor: "pointer" }}
+                    style={{
+                      margin: "0px 5px 0px 5px",
+                      padding: "0px 5px 0px 5px",
+                      borderRadius: "10px",
+                      cursor: "pointer",
+                      border: "1px solid black",
+                    }}
                     onClick={() =>
                       dispatch(addToCart(item, item.quantity + 1, item.variant))
                     }
@@ -52,7 +58,13 @@ const CartScreen = () => {
                   </span>
                   <span>{item.quantity}</span>
                   <span
-                    style={{ margin: "0px 5px 0px 5px", cursor: "pointer" }}
+                    style={{
+                      margin: "0px 5px 0px 5px",
+                      padding: "0px 5px 0px 5px",
+                      cursor: "pointer",
+                      border: "1px solid black",
+                      borderRadius: "10px",
+                    }}
                     onClick={() => {
                       item.quantity > 1
                         ? dispatch(
@@ -76,6 +88,7 @@ const CartScreen = () => {
                     border: "1px solid black",
                     padding: "5px",
                     cursor: "pointer",
+                    borderRadius: "10px",
                   }}
                   onClick={() => dispatch(deleteFromCart(item))}
                 >
